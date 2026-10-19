@@ -19,17 +19,13 @@ interface LoginScreenProps {
 export function LoginScreen({ onLogin }: LoginScreenProps) {
   const [idInstance, setIdInstance] = useState('')
   const [apiTokenInstance, setApiTokenInstance] = useState('')
-  const [customApiUrl, setCustomApiUrl] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isChecking, setIsChecking] = useState(false)
-
-  // Follows idInstance until the user edits the field by hand.
-  const apiUrl = customApiUrl ?? defaultApiUrl(idInstance)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const credentials: Credentials = {
-      apiUrl: apiUrl.trim(),
+      apiUrl: defaultApiUrl(idInstance),
       idInstance: idInstance.trim(),
       apiTokenInstance: apiTokenInstance.trim(),
     }
@@ -55,7 +51,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         <TelegramLogo className={styles.logo} />
         <h1 className={styles.title}>Telegram через GREEN-API</h1>
         <p className={styles.hint}>
-          Скопируйте idInstance, apiTokenInstance и apiUrl из{' '}
+          Введите idInstance и apiTokenInstance из{' '}
           <a href="https://console.green-api.com" target="_blank" rel="noreferrer">
             личного кабинета GREEN-API
           </a>
@@ -81,16 +77,6 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
             value={apiTokenInstance}
             onChange={(event) => setApiTokenInstance(event.target.value)}
             autoComplete="current-password"
-            required
-          />
-        </label>
-
-        <label className={styles.field}>
-          <span>apiUrl</span>
-          <input
-            type="url"
-            value={apiUrl}
-            onChange={(event) => setCustomApiUrl(event.target.value)}
             required
           />
         </label>
