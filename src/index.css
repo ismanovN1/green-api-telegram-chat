@@ -1,0 +1,79 @@
+:root {
+  --color-primary: #3390ec;
+  --color-primary-hover: #2b7fd4;
+  --color-surface: #ffffff;
+  --color-input: #f1f1f1;
+  --color-hover: #f4f4f5;
+  --color-border: #dadce0;
+  --color-text: #000000;
+  --color-text-secondary: #707579;
+  --color-error: #e53935;
+  --color-badge: #c4c9cc;
+  --color-warning-bg: #fff4e5;
+  --color-warning-text: #8a5300;
+
+  --color-bubble-in: #ffffff;
+  --color-bubble-out: #eeffde;
+  --color-bubble-shadow: rgba(16, 35, 47, 0.15);
+  --color-meta-in: #a3a8ac;
+  --color-meta-out: #4fae4e;
+  --color-service-bubble: rgba(78, 104, 74, 0.45);
+
+  /* Telegram's default green chat wallpaper */
+  --chat-background: linear-gradient(135deg, #d0daa0 0%, #8fb87e 50%, #b4cf96 100%);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #8774e1;
+    --color-primary-hover: #7a66d8;
+    --color-surface: #212121;
+    --color-input: #181818;
+    --color-hover: #2c2c2c;
+    --color-border: #303030;
+    --color-text: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-error: #ff595a;
+    --color-badge: #5d5d5d;
+    --color-warning-bg: #3a2c12;
+    --color-warning-text: #ffcf87;
+
+    --color-bubble-in: #212121;
+    --color-bubble-out: #8774e1;
+    --color-bubble-shadow: rgba(0, 0, 0, 0.3);
+    --color-meta-in: #8b8b8b;
+    --color-meta-out: rgba(255, 255, 255, 0.6);
+    --color-service-bubble: rgba(0, 0, 0, 0.4);
+
+    --chat-background: linear-gradient(135deg, #0f0f0f 0%, #1b1b2a 50%, #121212 100%);
+
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
