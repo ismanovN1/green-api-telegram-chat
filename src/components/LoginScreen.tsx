@@ -55,7 +55,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         <TelegramLogo className={styles.logo} />
         <h1 className={styles.title}>Telegram через GREEN-API</h1>
         <p className={styles.hint}>
-          Введите данные инстанса из{' '}
+          Скопируйте idInstance, apiTokenInstance и apiUrl из{' '}
           <a href="https://console.green-api.com" target="_blank" rel="noreferrer">
             личного кабинета GREEN-API
           </a>

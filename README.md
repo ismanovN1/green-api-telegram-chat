@@ -3,7 +3,22 @@
 Тестовое задание на позицию «Фронтенд разработчик React» в GREEN-API.
 
 Веб-интерфейс для отправки и получения текстовых сообщений Telegram через
-[GREEN-API](https://green-api.com). Внешний вид повторяет Telegram Web.
+[GREEN-API](https://green-api.com). Задание допускает вместо MAX выбрать
+WhatsApp или Telegram — выбран Telegram, поэтому за прототип интерфейса взят
+[Telegram Web](https://web.telegram.org).
+
+## Соответствие требованиям
+
+| Требование | Реализация |
+|---|---|
+| Сервис GREEN-API | `src/api/greenApi.ts` |
+| Только текстовые сообщения | остальные типы уведомлений пропускаются (`src/api/notifications.ts`) |
+| Отправка методом `SendMessage` | `useChats.sendMessage` |
+| Получение через HTTP API | `ReceiveNotification` + `DeleteNotification` в `useNotificationPolling` |
+| Вход по `idInstance` и `apiTokenInstance` | `LoginScreen` |
+| Новый чат по номеру телефона | форма над списком чатов (`Sidebar`) |
+| Ответ получателя виден в чате | входящие сообщения попадают в открытый чат |
+| React | React 19 + TypeScript |
 
 ## Возможности
 
@@ -44,9 +59,9 @@ npm run lint      # Oxlint
 
 1. Зарегистрируйтесь на [green-api.com](https://green-api.com), создайте
    Telegram-инстанс и авторизуйте его своим аккаунтом Telegram.
-2. Откройте приложение и введите `idInstance` и `apiTokenInstance`.
-   `apiUrl` подставляется автоматически по первым четырём цифрам `idInstance`.
-   Если в личном кабинете указан другой адрес, исправьте его вручную.
+2. Откройте приложение и введите `idInstance`, `apiTokenInstance` и `apiUrl`
+   из личного кабинета. `apiUrl` подставляется автоматически по первым четырём
+   цифрам `idInstance`; если в кабинете указан другой адрес, замените его.
 3. Введите номер телефона получателя в международном формате, например
    `79001234567`, и нажмите «+».
 4. Отправьте сообщение. Ответ собеседника появится в чате.
